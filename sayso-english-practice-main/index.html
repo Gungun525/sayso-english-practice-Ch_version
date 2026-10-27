@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#120f2b">
+  <meta name="description" content="通过实用语法和日常词汇学习英语。">
+  <title>Sayso — 英语学习</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="translations.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+      <a class="brand" href="#grammar" aria-label="Sayso 首页">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>sayso<span class="brand-period">.</span></span>
+      </a>
+
+      <div class="sidebar-label">学习空间</div>
+      <nav class="nav-list">
+        <button class="nav-item is-active" type="button" data-view="grammar" aria-label="语法指南" aria-current="page">
+          <i data-lucide="book-open" aria-hidden="true"></i><span>语法指南</span>
+        </button>
+        <button class="nav-item" type="button" data-view="vocabulary" aria-label="词汇学习">
+          <i data-lucide="library" aria-hidden="true"></i><span>词汇学习</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="streak-note"><span class="streak-spark" aria-hidden="true">✳</span><span><strong>每天进步一点点。</strong><small>学实用英语，随时都能用。</small></span></div>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div class="breadcrumb"><span>我的英语</span><i data-lucide="chevron-right" aria-hidden="true"></i><strong id="page-label">语法指南</strong></div>
+      </header>
+
+      <section class="view learning-view" id="grammar-view" aria-labelledby="grammar-title">
+        <div class="learning-column grammar-column">
+          <div class="view-heading learning-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span> 轻松掌握日常英语</div>
+              <h1 id="grammar-title">学好语法，<em>自然交流。</em></h1>
+              <p class="heading-copy">选择一个主题，快速了解语法讲解和日常实用例句。</p>
+            </div>
+          </div>
+          <div class="grammar-level-tabs" id="grammar-level-tabs" role="tablist" aria-label="语法等级"></div>
+          <div class="grammar-tabs" id="grammar-tabs" role="tablist" aria-label="语法主题"></div>
+          <div class="grammar-tabs tense-tabs" id="tense-tabs" role="tablist" aria-label="时态课程" hidden></div>
+          <section class="grammar-content" id="grammar-content" role="tabpanel" aria-live="polite"></section>
+          <p class="grammar-footnote"><i data-lucide="sparkles" aria-hidden="true"></i> 学会一个实用句型，再检验一下自己的理解。</p>
+        </div>
+      </section>
+
+      <section class="view learning-view vocabulary-view" id="vocabulary-view" aria-labelledby="vocabulary-title" hidden>
+        <div class="learning-column vocabulary-column">
+          <div class="view-heading learning-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span> 学了就能用的词汇</div>
+              <h1 id="vocabulary-title">积累日常<em>实用词汇。</em></h1>
+              <p class="heading-copy">通过自然例句学习常用表达、动词形式、形容词和副词。</p>
+            </div>
+          </div>
+          <div class="vocabulary-tools">
+            <label class="visually-hidden" for="vocabulary-search">搜索词汇</label>
+            <input class="vocabulary-search" id="vocabulary-search" type="search" placeholder="搜索词汇…" autocomplete="off">
+            <label class="visually-hidden" for="vocabulary-subtopic">词汇子主题</label>
+            <select class="vocabulary-filter" id="vocabulary-subtopic" aria-label="词汇子主题">
+              <option value="all">所有子主题</option>
+            </select>
+            <label class="visually-hidden" for="vocabulary-part-of-speech">词性</label>
+            <select class="vocabulary-filter" id="vocabulary-part-of-speech" aria-label="词性">
+              <option value="all">所有词性</option>
+              <option value="noun">名词</option>
+              <option value="verb">动词</option>
+              <option value="adjective">形容词</option>
+              <option value="adverb">副词</option>
+              <option value="phrase">短语</option>
+            </select>
+            <span class="vocabulary-count" id="vocabulary-count" aria-live="polite"></span>
+          </div>
+          <div class="grammar-tabs" id="vocabulary-tabs" role="tablist" aria-label="词汇分类"></div>
+          <section class="grammar-content vocabulary-content" id="vocabulary-content" role="tabpanel" aria-live="polite"></section>
+          <p class="grammar-footnote"><i data-lucide="sparkles" aria-hidden="true"></i> 学会一个词，再试着用它造句。</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
